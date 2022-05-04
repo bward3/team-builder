@@ -1,0 +1,26 @@
+{
+  "name": "team-builder",
+  "version": "1.0.0",
+  "description": "build html page for your project team",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bward3/team-builder.git"
+  },
+  "author": "bward3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bward3/team-builder/issues"
+  },
+  "homepage": "https://github.com/bward3/team-builder#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^28.0.3"
+  }
+}
