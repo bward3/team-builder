@@ -1,7 +1,7 @@
 const createHTMLString = (employees) => {
     let employeeDivs = makeDivs(employees);
     var html =
-`<!DOCTYPE html>
+        `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,6 +12,7 @@ const createHTMLString = (employees) => {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -26,14 +27,14 @@ const createHTMLString = (employees) => {
 </body>
 
 </html>`;
-return html;
+    return html;
 }
 
 const makeDivs = (employees) => {
     let HTMLstring = '';
     let employeeString;
     let divTemplate =
-`<div class="col my-card">
+        `<div class="col my-card">
     <div class="card mb-4 rounded-3 shadow-sm border-primary">
         <div class="card-header py-3 text-white bg-primary border-primary">
             <h1 class="card-title">NAME</h1>
@@ -51,10 +52,15 @@ const makeDivs = (employees) => {
     `;
     for (let i = 0; i < employees.length; i++) {
         let employee = employees[i];
+        let icons = {
+            'Manager': '<i class="fa-solid fa-hot-tub-person"></i>',
+            'Engineer': '<i class="fa-solid fa-user-ninja"></i>',
+            'Intern': '<i class="fa-solid fa-baby"></i>'
+        }
         let role = employee.getRole();
         employeeString = divTemplate.replace('NAME', employee.getName());
-        employeeString = employeeString.replace('POSITION', employee.getRole());
-        employeeString = employeeString.replace('ID', '<h3>id: <span class="text-muted fw-light">' + employee.getId() + '</span></h3>');
+        employeeString = employeeString.replace('POSITION', `${role} ${icons[role]}`);
+        employeeString = employeeString.replace('ID', '<h3>ID: <span class="text-muted fw-light">' + employee.getId() + '</span></h3>');
         employeeString = employeeString.replace('EMAIL', `<h3>Email: <a class="text-primary fw-light" href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></h3>`);
         switch (role) {
             case 'Manager':
